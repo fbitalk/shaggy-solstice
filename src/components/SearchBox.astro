@@ -1,0 +1,159 @@
+---
+---
+
+<div class="search-container">
+  <div class="search-box">
+    <div class="search-options">
+      <select id="search-type">
+        <option value="site">站内搜索</option>
+        <option value="baidu">百度</option>
+        <option value="google">谷歌</option>
+        <option value="bing">必应</option>
+      </select>
+    </div>
+    <input type="text" id="search-input" placeholder="输入关键词搜索..." />
+    <button id="search-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill="currentColor" d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  .search-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .search-box:hover, .search-box:focus-within {
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .search-options {
+    margin-right: 10px;
+  }
+
+  #search-type {
+    background: transparent;
+    border: none;
+    color: #333;
+    font-size: 0.9rem;
+    padding: 0.3rem;
+    cursor: pointer;
+    outline: none;
+    font-weight: 500;
+  }
+
+  #search-type option {
+    background-color: white;
+    color: #333;
+  }
+
+  #search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 0.7rem 0;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+  }
+
+  #search-input::placeholder {
+    color: rgba(51, 51, 51, 0.7);
+  }
+
+  #search-btn {
+    background: transparent;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+
+  #search-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 576px) {
+    .search-box {
+      padding: 0.3rem 0.8rem;
+    }
+    
+    .search-options {
+      margin-right: 5px;
+    }
+    
+    #search-input {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchBtn = document.getElementById('search-btn');
+    const searchInput = document.getElementById('search-input');
+    const searchType = document.getElementById('search-type');
+    
+    if (searchBtn && searchInput && searchType) {
+      searchBtn.addEventListener('click', performSearch);
+      searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          performSearch();
+        }
+      });
+    }
+    
+    function performSearch() {
+      const query = searchInput.value.trim();
+      if (!query) return;
+      
+      const type = searchType.value;
+      let searchUrl;
+      
+      switch(type) {
+        case 'baidu':
+          searchUrl = `https://www.baidu.com/s?wd=${encodeURIComponent(query)}`;
+          break;
+        case 'google':
+          searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+          break;
+        case 'bing':
+          searchUrl = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
+          break;
+        case 'site':
+        default:
+          // 站内搜索逻辑，可以根据实际情况修改
+          searchUrl = `/search?q=${encodeURIComponent(query)}`;
+          break;
+      }
+      
+      window.open(searchUrl, '_blank');
+    }
+  });
+</script> 

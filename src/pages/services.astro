@@ -1,0 +1,264 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="服务 | 云之南导航">
+	<section class="services-hero">
+		<div class="container">
+			<h1 class="page-title">我们的服务</h1>
+			<p class="lead">专业的网站设计与开发解决方案</p>
+		</div>
+	</section>
+
+	<section class="services-grid">
+		<div class="container">
+			<div class="services-wrapper">
+				<div class="service-card">
+					<div class="service-icon">🎨</div>
+					<h3>UI/UX 设计</h3>
+					<p>创建美观且易于使用的界面设计，提升用户体验和参与度。</p>
+					<a href="#" class="service-link">了解更多</a>
+				</div>
+				
+				<div class="service-card">
+					<div class="service-icon">💻</div>
+					<h3>Web 开发</h3>
+					<p>使用最新技术构建高性能、响应式的网站和Web应用。</p>
+					<a href="#" class="service-link">了解更多</a>
+				</div>
+				
+				<div class="service-card">
+					<div class="service-icon">📱</div>
+					<h3>移动应用开发</h3>
+					<p>为iOS和Android平台开发功能强大、用户友好的移动应用。</p>
+					<a href="#" class="service-link">了解更多</a>
+				</div>
+				
+				<div class="service-card">
+					<div class="service-icon">🚀</div>
+					<h3>性能优化</h3>
+					<p>优化网站加载速度和性能，提高搜索引擎排名和用户留存率。</p>
+					<a href="#" class="service-link">了解更多</a>
+				</div>
+				
+				<div class="service-card">
+					<div class="service-icon">🔍</div>
+					<h3>SEO 优化</h3>
+					<p>提高您的网站在搜索引擎中的可见性，增加有机流量。</p>
+					<a href="#" class="service-link">了解更多</a>
+				</div>
+				
+				<div class="service-card">
+					<div class="service-icon">🔒</div>
+					<h3>网站安全</h3>
+					<p>实施最佳安全实践，保护您的网站免受常见威胁。</p>
+					<a href="#" class="service-link">了解更多</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="cta-section">
+		<div class="container">
+			<div class="cta-wrapper">
+				<h2>准备好开始您的项目了吗？</h2>
+				<p>联系我们讨论您的需求，获取免费咨询。</p>
+				<a href="/contact" class="btn">联系我们</a>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.services-hero {
+		background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+		color: white;
+		padding: 6rem 0 4rem;
+		text-align: center;
+	}
+
+	.page-title {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	.lead {
+		font-size: 1.5rem;
+		opacity: 0.9;
+		max-width: 600px;
+		margin: 0 auto;
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	.services-grid {
+		padding: 5rem 0;
+	}
+
+	.services-wrapper {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.service-card {
+		background: white;
+		border-radius: 10px;
+		padding: 2.5rem;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+		transition: all 0.3s ease;
+		position: relative;
+		z-index: 1;
+		overflow: hidden;
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	.service-card:hover {
+		transform: translateY(-10px) scale(1.02);
+		box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+	}
+
+	.service-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 0;
+		background: linear-gradient(135deg, rgba(50, 69, 255, 0.05), rgba(188, 82, 238, 0.05));
+		transition: height 0.5s ease;
+		z-index: -1;
+	}
+
+	.service-card:hover::before {
+		height: 100%;
+	}
+
+	.service-icon {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.service-card h3 {
+		margin-bottom: 1rem;
+		font-size: 1.5rem;
+	}
+
+	.service-card p {
+		color: #666;
+		line-height: 1.6;
+		margin-bottom: 1.5rem;
+	}
+
+	.service-link {
+		color: var(--primary-color);
+		text-decoration: none;
+		font-weight: 500;
+		display: inline-block;
+		position: relative;
+	}
+
+	.service-link::after {
+		content: '→';
+		margin-left: 0.5rem;
+		transition: transform 0.3s ease;
+		display: inline-block;
+	}
+
+	.service-link:hover::after {
+		transform: translateX(5px);
+	}
+
+	.cta-section {
+		background-color: #f5f5f7;
+		padding: 5rem 0;
+	}
+
+	.cta-wrapper {
+		max-width: 700px;
+		margin: 0 auto;
+		text-align: center;
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	.cta-wrapper h2 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.cta-wrapper p {
+		margin-bottom: 2rem;
+		font-size: 1.2rem;
+		opacity: 0.8;
+	}
+
+	@media (max-width: 768px) {
+		.page-title {
+			font-size: 2.5rem;
+		}
+		
+		.services-wrapper {
+			grid-template-columns: 1fr;
+		}
+		
+		.cta-wrapper h2 {
+			font-size: 2rem;
+		}
+	}
+</style>
+
+<script>
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		gsap.registerPlugin(ScrollTrigger);
+		
+		// 页面标题动画
+		const tl = gsap.timeline();
+		
+		tl.to('.page-title', {
+			opacity: 1,
+			y: 0,
+			duration: 1,
+			ease: 'power3.out'
+		}).to('.lead', {
+			opacity: 1,
+			y: 0,
+			duration: 1,
+			ease: 'power3.out'
+		}, '-=0.5');
+		
+		// 服务卡片动画
+		const cards = document.querySelectorAll('.service-card');
+		cards.forEach((card, index) => {
+			gsap.to(card, {
+				scrollTrigger: {
+					trigger: card,
+					start: 'top 85%',
+				},
+				opacity: 1,
+				y: 0,
+				duration: 0.8,
+				delay: index * 0.1,
+				ease: 'power3.out'
+			});
+		});
+		
+		// CTA动画
+		gsap.to('.cta-wrapper', {
+			scrollTrigger: {
+				trigger: '.cta-wrapper',
+				start: 'top 80%',
+			},
+			opacity: 1,
+			y: 0,
+			duration: 1,
+			ease: 'power3.out'
+		});
+	});
+</script> 

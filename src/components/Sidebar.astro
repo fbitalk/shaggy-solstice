@@ -1,0 +1,139 @@
+---
+---
+
+<aside class="sidebar">
+  <div class="sidebar-content">
+    <a href="#anime" class="widget">
+      <div class="widget-icon">🎬</div>
+      <h3 class="widget-title" data-category="anime">在线动漫</h3>
+    </a>
+    
+    <a href="#popular" class="widget">
+      <div class="widget-icon">🌐</div>
+      <h3 class="widget-title" data-category="popular">热门网站</h3>
+    </a>
+    
+    <a href="#download" class="widget">
+      <div class="widget-icon">📦</div>
+      <h3 class="widget-title" data-category="download">资源下载</h3>
+    </a>
+    
+    <a href="#video" class="widget">
+      <div class="widget-icon">🎞️</div>
+      <h3 class="widget-title" data-category="video">影视专区</h3>
+    </a>
+    
+    <a href="#ai" class="widget">
+      <div class="widget-icon">🤖</div>
+      <h3 class="widget-title" data-category="ai">AI工具</h3>
+    </a>
+    
+    <a href="#game" class="widget">
+      <div class="widget-icon">🎮</div>
+      <h3 class="widget-title" data-category="game">游戏下载</h3>
+    </a>
+    
+    <a href="#academic" class="widget">
+      <div class="widget-icon">🔬</div>
+      <h3 class="widget-title" data-category="academic">学术导航</h3>
+    </a>
+    
+    <a href="#ebook" class="widget">
+      <div class="widget-icon">📚</div>
+      <h3 class="widget-title" data-category="ebook">电子书库</h3>
+    </a>
+  </div>
+</aside>
+
+<style>
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    bottom: 0;
+    width: 60px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    z-index: 90;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    padding-bottom: 20px;
+  }
+  
+  .sidebar:hover {
+    width: 220px;
+  }
+
+  .sidebar-content {
+    padding: 1rem 0;
+    height: 100%;
+    overflow-y: auto;
+    width: 220px;
+  }
+  
+  .widget {
+    display: flex;
+    align-items: center;
+    padding: 0.7rem 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+    border-radius: 0 30px 30px 0;
+    width: 220px;
+    text-decoration: none;
+  }
+  
+  .widget:hover {
+    background-color: rgba(50, 69, 255, 0.1);
+  }
+  
+  .widget-icon {
+    font-size: 1.3rem;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+  
+  .widget-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 0;
+  }
+  
+  .sidebar:hover .widget-title {
+    opacity: 1;
+    width: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 50px;
+    }
+    
+    .sidebar:hover {
+      width: 200px;
+    }
+    
+    .sidebar-content {
+      width: 200px;
+    }
+    
+    .widget {
+      width: 200px;
+    }
+  }
+</style>
+
+<script>
+  // 使用HTML锚点链接代替JavaScript处理
+</script> 
